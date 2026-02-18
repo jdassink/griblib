@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "griblib"
+version = "0.1.0"
+description = "A versatile library for working with GRIB files in Python."
+authors = [{ name = "Jelle Assink", email = "jelle.assink@knmi.nl" }]
+readme = "README.md"
+requires-python = ">=3.9"
+keywords = ["atmosphere", "grib", "harmonie", "ecmwf", "gravity waves", "infrasound"]
+dependencies = [
+]  # Add dependencies if needed
+
+[project.urls]
+Homepage = "https://github.com/jdassink/griblib"
+Repository = "https://github.com/jdassink/griblib"
+
+[tool.setuptools]
+packages = ["griblib"]
+
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["osx-arm64"]
+
+[tool.pixi.dependencies]
+matplotlib = "*"
+pandas = "*"
+scipy = "*"
+numpy = "*"
+pyproj = "*"
+xarray = "*"
+cfgrib = "*"
+pytest = ">=8.3.5,<9"
+
+[tool.pixi.environments]
+default = { solve-group = "default" }
+dev = { features = ["devtools"], solve-group = "default" }
+
+[tool.pixi.feature.devtools]
+dependencies = {ruff = "*", pytest = "*"}
+
+[tool.pixi.tasks]
+test = "pytest"
