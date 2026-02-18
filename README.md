@@ -29,7 +29,7 @@ Clone:
 
 .. code-block:: console
 
-    git clone git@gitlab.com:KNMI/RDSA/research/griblib.git
+    git clone git@github.com:jdassink/griblib.git
 
 
 Install:
